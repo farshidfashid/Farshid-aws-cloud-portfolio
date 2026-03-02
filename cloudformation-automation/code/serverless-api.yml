@@ -1,0 +1,80 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Serverless REST API using Lambda and API Gateway
+
+Resources:
+
+  LambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: LambdaLogs
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource: "*"
+
+  FoodOrderLambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: FoodOrderHandler
+      Handler: index.handler
+      Runtime: nodejs18.x
+      Role: !GetAtt LambdaExecutionRole.Arn
+      Code:
+        ZipFile: |
+          exports.handler = async (event) => {
+              return {
+                  statusCode: 200,
+                  body: JSON.stringify({ message: "Food order received!" })
+              };
+          };
+
+  FoodOrderAPI:
+    Type: AWS::ApiGateway::RestApi
+    Properties:
+      Name: FoodOrderAPI
+      Description: API for Food Order App
+
+  FoodOrderResource:
+    Type: AWS::ApiGateway::Resource
+    Properties:
+      ParentId: !GetAtt FoodOrderAPI.RootResourceId
+      PathPart: orders
+      RestApiId: !Ref FoodOrderAPI
+
+  FoodOrderMethod:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      HttpMethod: POST
+      RestApiId: !Ref FoodOrderAPI
+      ResourceId: !Ref FoodOrderResource
+      AuthorizationType: NONE
+      Integration:
+        IntegrationHttpMethod: POST
+        Type: AWS_PROXY
+        Uri: !Sub arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${FoodOrderLambda.Arn}/invocations
+
+  LambdaPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref FoodOrderLambda
+      Action: lambda:InvokeFunction
+      Principal: apigateway.amazonaws.com
+      SourceArn: !Sub arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${FoodOrderAPI}/*/POST/orders
+
+Outputs:
+  APIEndpoint:
+    Description: URL for the REST API
+    Value: !Sub https://${FoodOrderAPI}.execute-api.${AWS::Region}.amazonaws.com/prod/orders

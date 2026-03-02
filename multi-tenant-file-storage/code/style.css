@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multi-Tenant Storage</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Multi-Tenant File Upload</h1>
+
+    <form id="uploadForm">
+        <input type="text" id="tenantId" placeholder="Tenant ID" required>
+        <input type="text" id="userId" placeholder="User ID" required>
+        <input type="file" id="fileInput" required>
+        <button type="submit">Upload File</button>
+    </form>
+
+    <p id="responseMessage"></p>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

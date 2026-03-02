@@ -1,0 +1,38 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: S3 Static Website Hosting
+
+Parameters:
+  BucketName:
+    Type: String
+    Default: foodapp-static-website
+
+Resources:
+  StaticWebsiteBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref BucketName
+      AccessControl: PublicRead
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: error.html
+
+  BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref StaticWebsiteBucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal: "*"
+            Action: "s3:GetObject"
+            Resource: !Join 
+              - ""
+              - - "arn:aws:s3:::"
+                - !Ref StaticWebsiteBucket
+                - "/*"
+
+Outputs:
+  WebsiteURL:
+    Description: URL of S3 Static Website
+    Value: !GetAtt StaticWebsiteBucket.WebsiteURL

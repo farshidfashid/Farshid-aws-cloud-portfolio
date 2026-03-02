@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AWS Cloud Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">☁ CloudEngineer</div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#features">Features</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Static Website Hosted on Amazon S3</h1>
+        <p>Serverless • Scalable • Cost-Effective</p>
+        <button onclick="showMessage()">Explore Project</button>
+    </section>
+
+    <section id="about" class="section">
+        <h2>About This Project</h2>
+        <p>
+            This website is fully hosted on Amazon S3 using static website hosting.
+            No servers. No EC2. Pure serverless architecture.
+        </p>
+    </section>
+
+    <section id="features" class="section features">
+        <h2>Key Features</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>⚡ Serverless</h3>
+                <p>Hosted entirely on Amazon S3 without managing servers.</p>
+            </div>
+            <div class="card">
+                <h3>🔐 Secure Access</h3>
+                <p>Configured bucket policies and IAM for controlled access.</p>
+            </div>
+            <div class="card">
+                <h3>🌍 Scalable</h3>
+                <p>Automatically scales with demand and traffic.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact">
+        <h2>Visitor Counter</h2>
+        <p id="counter">Loading...</p>
+    </section>
+
+    <footer>
+        Built with ❤️ using Amazon S3 | Cloud Portfolio Project
+    </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
