@@ -1,20 +1,29 @@
 # ☁️ AWS Cloud Portfolio – Farshid
 
-This repository contains **23 hands-on AWS cloud projects** demonstrating real-world cloud engineering, serverless architecture, automation, monitoring, security, and cost optimization.
+This repository contains **24 hands-on AWS & DevOps cloud projects** demonstrating real-world cloud engineering, infrastructure automation, serverless architecture, containerization, monitoring, security, and cost optimization.
 
-Each project focuses on **practical AWS services**, industry-aligned use cases, and production-style architectures.
+Each project focuses on production-style architectures, scalability, and industry best practices.
 
 ---
 
-## About Me
+## 👨‍💻 About Me
 
 **Name:** Farshid  
-**Skills:** AWS, Serverless, EC2, S3, IAM, Lambda, CloudFront, RDS, CI/CD, Monitoring, Automation, Docker, Kubernetes  
-**Focus:** Building scalable, secure, and cost-efficient cloud solutions
+**Role Goal:** AWS Cloud Engineer / Junior Cloud Engineer  
+**Core Focus:** Scalable, secure, automated cloud infrastructure  
+
+### 🛠️ Technical Skills
+
+- **Cloud:** AWS (EC2, S3, IAM, Lambda, RDS, CloudFront, DynamoDB, API Gateway, EventBridge, SNS, CloudWatch)
+- **Infrastructure as Code:** Terraform, AWS CloudFormation
+- **Containers & Orchestration:** Docker, Docker Compose, Kubernetes
+- **CI/CD:** GitHub, CodePipeline, CodeBuild
+- **Monitoring & Cost Optimization:** CloudWatch, AWS Budgets, Cost Explorer
+- **Other:** Linux, Git, Networking Fundamentals
 
 ---
 
-## Projects Overview
+# 📂 Projects Overview
 
 | #  | Project Name |
 |----|--------------|
@@ -40,52 +49,102 @@ Each project focuses on **practical AWS services**, industry-aligned use cases, 
 |20  | Real-Time IAM Security Auto-Remediation System |
 |21  | Full-Stack Serverless Power of Math Calculator (Amplify + Lambda + API Gateway) |
 |22  | Multi-Service Containerized Deployment & Orchestration (Docker Compose) |
-|23  | Containerized Node.js Application Deployment with Kubernetes (docker-kubernetes-nodejs-app) |
+|23  | Containerized Node.js Application Deployment with Kubernetes |
+|24  | High Availability Web Application using Terraform (ALB + Auto Scaling) |
 
 ---
 
-## Project 23 Details
+# 🚀 Project 24 – High Availability Web Application using Terraform
+
+**Tech Stack:** Terraform, AWS VPC, EC2, Application Load Balancer (ALB), Auto Scaling Group (ASG), Launch Template  
+
+## 📌 Description
+
+Designed and deployed a highly available and scalable web application architecture on AWS using Terraform (Infrastructure as Code).
+
+This project demonstrates real-world cloud infrastructure automation using a modular Terraform structure.
+
+---
+
+## 🏗️ Architecture Components
+
+- Custom VPC
+- Public Subnets across multiple Availability Zones
+- Internet Gateway
+- Application Load Balancer (ALB)
+- Target Group with health checks
+- Launch Template
+- Auto Scaling Group (Min: 2, Max: 3)
+- Security Groups with controlled inbound rules
+
+---
+
+## ⚙️ What I Implemented
+
+- Modular Terraform project structure
+- Infrastructure fully provisioned using `terraform init`, `plan`, and `apply`
+- Multi-AZ deployment for high availability
+- Load-balanced EC2 instances
+- Auto Scaling configuration
+- User data bootstrap for Nginx installation
+- Clean Git structure with `.gitignore` best practices
+
+---
+
+## 📚 Key Learnings
+
+- Infrastructure as Code (IaC) best practices
+- Modular Terraform architecture
+- High availability design patterns
+- Load balancing and health checks
+- Auto Scaling lifecycle management
+- Production-style AWS networking setup
+
+---
+
+## 🏷️ Hashtags
+
+#Terraform #AWS #CloudEngineering #InfrastructureAsCode #DevOps #AutoScaling #LoadBalancing #HighAvailability #LearningInPublic
+
+---
+
+# 📦 Project 23 – Kubernetes Deployment (Containerized Node.js)
 
 **Tech:** Node.js, Docker, Kubernetes, HPA, Docker Desktop  
 
-**Description:**  
-Deployed a containerized Node.js application using Kubernetes on Docker Desktop as part of hands-on DevOps learning.
+## What I Implemented
 
-**What I Implemented:**  
-- Dockerized a Node.js web application 🐳  
-- Created Kubernetes Deployment with replica sets ☸️  
-- Configured resource requests and limits 📦  
-- Implemented liveness and readiness probes ❤️  
-- Exposed the application using a NodePort Service 🌐  
-- Configured Horizontal Pod Autoscaler (HPA) for CPU-based scaling 📈  
-- Used `kubectl` for debugging, pod inspection, and troubleshooting 🛠️  
+- Dockerized Node.js web application  
+- Kubernetes Deployment with replica sets  
+- Resource requests and limits  
+- Liveness & readiness probes  
+- NodePort Service exposure  
+- Horizontal Pod Autoscaler (HPA)  
+- kubectl debugging and troubleshooting  
 
-**Key Learnings:**  
-- How Kubernetes manages containers at scale  
-- How health checks control traffic and restarts  
-- How autoscaling works in real-world environments  
-- How to troubleshoot cluster and pod-level issues  
-- Practical experience resolving cluster connectivity issues 💪  
+## Key Learnings
 
-**Hashtags:**  
-#Kubernetes #Docker #DevOps #CloudComputing #AWS #LearningInPublic #TechJourney
+- Container orchestration concepts  
+- Pod lifecycle and health checks  
+- Autoscaling strategies  
+- Cluster-level debugging  
+- Real-world DevOps troubleshooting  
 
 ---
 
-## What This Portfolio Demonstrates
+# 💡 What This Portfolio Demonstrates
 
-- **Real AWS hands-on experience**: EC2, S3, Lambda, DynamoDB, RDS, CloudFront, IAM  
-- **Serverless & event-driven architecture**: S3 triggers, API Gateway, Lambda, EventBridge  
-- **Security best practices**: IAM roles, policies, MFA, Origin Access Control, private buckets  
-- **Infrastructure as Code (IaC)**: CloudFormation templates for repeatable deployment  
-- **Monitoring, logging & alerting**: CloudWatch metrics, alarms, SNS notifications  
-- **Cost awareness & budget management**: AWS Budgets, Cost Explorer automation  
-- **CI/CD & DevOps practices**: Automated pipeline with CodePipeline, CodeBuild, GitHub integration  
-- **Containerization & orchestration**: Docker, Docker Compose, Kubernetes for multi-service apps  
+✔ Real AWS hands-on experience  
+✔ Serverless & event-driven architectures  
+✔ Infrastructure as Code (Terraform & CloudFormation)  
+✔ CI/CD automation  
+✔ Monitoring & logging  
+✔ Cost optimization awareness  
+✔ Containerization & orchestration  
+✔ Production-style scalable architectures  
 
 ---
 
-## How to Use This Repository
+# 📁 Repository Structure
 
-- Each project is contained in its **own folder**  
-- Folder structure example:  
+Each project is organized in its own folder:
